@@ -1,0 +1,25 @@
+{
+  "name": "openrouter-headless-agent",
+  "version": "1.0.0",
+  "description": "Minimal headless OpenRouter CLI agent with streaming and tool support.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:headless": "tsx src/headless.ts",
+    "dev": "tsx watch src/headless.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@openrouter/sdk": "^0.8.0",
+    "eventemitter3": "^5.0.4",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
