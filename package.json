@@ -1,5 +1,5 @@
 {
-  "name": "openrouter-headless-agent",
+  "name": "@abquanta/openrouter-headless-agent",
   "version": "1.0.0",
   "description": "Minimal headless OpenRouter CLI agent with streaming and tool support.",
   "main": "index.js",
@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/macizomedia/openrouter-headless-agent/issues"
   },
-  "homepage": "https://github.com/macizomedia/openrouter-headless-agent#readme"
+  "homepage": "https://github.com/macizomedia/openrouter-headless-agent#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }

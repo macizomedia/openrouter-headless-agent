@@ -5,7 +5,7 @@ A minimal, headless OpenRouter CLI agent with streaming output and basic tool su
 ## Install (npm)
 
 ```bash
-npm i -g openrouter-headless-agent
+npm i -g @abquanta/openrouter-headless-agent
 ```
 
 Then run:
