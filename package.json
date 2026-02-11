@@ -34,5 +34,13 @@
     "dist",
     "README.md",
     "package.json"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macizomedia/openrouter-headless-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/macizomedia/openrouter-headless-agent/issues"
+  },
+  "homepage": "https://github.com/macizomedia/openrouter-headless-agent#readme"
 }

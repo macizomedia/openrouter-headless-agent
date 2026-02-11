@@ -2,18 +2,24 @@
 
 A minimal, headless OpenRouter CLI agent with streaming output and basic tool support.
 
-## Install (local)
+## Install (npm)
 
 ```bash
-npm install
-npm run build
-npm link
+npm i -g openrouter-headless-agent
 ```
 
 Then run:
 
 ```bash
 openrouter-cli
+```
+
+## Install (local)
+
+```bash
+npm install
+npm run build
+npm link
 ```
 
 ## Run (no install)
