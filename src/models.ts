@@ -1,4 +1,9 @@
 export interface OpenRouterModel {
+  architecture?: {
+    modality?: string;
+    input_modalities?: string[];
+    output_modalities?: string[];
+  };
   id: string;
   name?: string;
   description?: string;
@@ -43,6 +48,32 @@ export async function fetchModels(opts?: {
 
   const data = (await res.json()) as { data?: OpenRouterModel[] };
   return Array.isArray(data.data) ? data.data : [];
+}
+
+
+export function isTextOnlyModel(model: OpenRouterModel): boolean {
+  const arch = model.architecture;
+  if (!arch) return false;
+  if (arch.modality && arch.modality !== 'text->text') return false;
+
+  const input = arch.input_modalities;
+  const output = arch.output_modalities;
+
+  if (Array.isArray(input) && input.some((m) => m !== 'text')) return false;
+  if (Array.isArray(output) && output.some((m) => m !== 'text')) return false;
+
+  return true;
+}
+
+export function modelPricePer1M(model: OpenRouterModel): number | null {
+  const prompt = asNumber(model.pricing?.prompt);
+  const completion = asNumber(model.pricing?.completion);
+
+  if (!Number.isFinite(prompt) || !Number.isFinite(completion)) return null;
+
+  // OpenRouter pricing is per-token; estimate blended cost per 1M tokens.
+  const blended = (prompt + completion) / 2;
+  return blended * 1_000_000;
 }
 
 /**

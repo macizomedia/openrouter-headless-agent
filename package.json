@@ -4,9 +4,12 @@
   "description": "Minimal headless OpenRouter CLI agent with streaming and tool support.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:headless": "tsx src/headless.ts",
-    "dev": "tsx watch src/headless.ts"
+    "test": "node --import tsx --test src/**/*.test.ts",
+    "start:headless": "tsx src/cli.ts",
+    "dev": "tsx watch src/cli.ts",
+    "start": "node dist/cli.js",
+    "build": "tsc",
+    "lint": "echo \"No lint configured\""
   },
   "keywords": [],
   "author": "",
@@ -15,11 +18,21 @@
   "dependencies": {
     "@openrouter/sdk": "^0.8.0",
     "eventemitter3": "^5.0.4",
-    "zod": "^4.3.6"
+    "zod": "^4.3.6",
+    "commander": "^12.1.0",
+    "@inquirer/prompts": "^6.0.1"
   },
   "devDependencies": {
     "@types/node": "^25.2.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
-  }
+  },
+  "bin": {
+    "openrouter-cli": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ]
 }

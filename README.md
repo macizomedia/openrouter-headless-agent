@@ -2,29 +2,42 @@
 
 A minimal, headless OpenRouter CLI agent with streaming output and basic tool support.
 
-## Run
+## Install (local)
+
+```bash
+npm install
+npm run build
+npm link
+```
+
+Then run:
+
+```bash
+openrouter-cli
+```
+
+## Run (no install)
 
 ```bash
 OPENROUTER_API_KEY=sk-or-... npm run start:headless
 ```
 
-By default it will try to auto-pick a free model (0 cost) from the models API.
-
-## Force a specific model
+## Test
 
 ```bash
-OPENROUTER_API_KEY=sk-or-... OPENROUTER_MODEL=openrouter/auto npm run start:headless
+npm run test
 ```
 
-## Dev (auto-reload)
+## Docker
 
 ```bash
-OPENROUTER_API_KEY=sk-or-... npm run dev
+docker build -t openrouter-headless-agent .
+docker run -it -e OPENROUTER_API_KEY=sk-or-... openrouter-headless-agent
 ```
 
 ## What’s inside
 
 - Streaming agent core in `src/agent.ts`
-- Model selection helper in `src/models.ts`
+- Model selection + pricing helpers in `src/models.ts`
 - Example tools in `src/tools.ts`
-- Headless CLI in `src/headless.ts`
+- CLI wizard in `src/cli.ts`
